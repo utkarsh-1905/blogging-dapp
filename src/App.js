@@ -3,6 +3,8 @@ import { Box } from "@mui/material";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Write from "./components/Write";
+import HomePage from "./components/Home";
+
 export default function Home() {
   const theme = createTheme({
     palette: {
@@ -18,7 +20,7 @@ export default function Home() {
       <Navbar />
       <Box className="container">
         <Routes>
-          <Route path="/" element={<h1>hello</h1>} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/write" element={<Write />} />
         </Routes>
       </Box>

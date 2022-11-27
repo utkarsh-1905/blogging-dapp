@@ -13,7 +13,19 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
-    <ThirdwebProvider desiredChainId={activeChainId}>
+    <ThirdwebProvider
+      desiredChainId={activeChainId}
+      chainRpc={{
+        [ChainId.Hardhat]: "http://localhost:8545",
+      }}
+      supportedChains={[ChainId.Hardhat]}
+      sdkOptions={{
+        readonlySettings: {
+          chainId: ChainId.Hardhat,
+          rpcUrl: "http://localhost:8545",
+        },
+      }}
+    >
       <Router>
         <App />
       </Router>
@@ -24,4 +36,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals(console.log);
+// reportWebVitals(console.log);

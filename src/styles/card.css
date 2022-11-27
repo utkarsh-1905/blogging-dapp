@@ -1,0 +1,45 @@
+/* card  */
+.card {
+  background-color: #1a2129;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  width: fit-content;
+  max-width: 30vw;
+  max-height: 20vh;
+  border-width: 2px;
+  border-style: none;
+}
+
+.card:hover {
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(36, 112, 162);
+}
+
+/* card_info */
+.card_info {
+  padding: 1rem;
+}
+@media (max-width: 768px) {
+  .card_info {
+    padding: 0.5rem;
+  }
+}
+
+.card_title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+.card_desc {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 2rem 0 1rem 0;
+}
+.author {
+  font-size: 100%;
+  margin-left: 1rem;
+}
