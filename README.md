@@ -1,36 +1,33 @@
-## Getting Started
+## Decentralized Blogging App
 
-Create a project using this example:
+* Works on Node Version 18.12.1
 
-```bash
-npx thirdweb create --template cra-javascript-starter
+### To Run
+
+- You should have Node.js and Git installed
+- Clone the repository and run `npm install`
+- Run `npm start` from the root of the folder to start the frontend server
+- Change directory to contracts in another terminal using `cd contracts`
+- Run `npx hardhat node` to locally start the hardhat blockchain developement environment
+- Again change directory to contracts in another terminal using `cd contracts`
+- Run `npx hardhat run scripts/deploy.js --network localhost` to deploy the smart contracts to the local blockchain
+- Add this local network to Metamask using the private key provided by the hardhat node with chain id 31337
+
+### Smart Contract Info
+
+```solidity
+
+    function getOwner() public view returns (address) {}
+
+    function changeOwner() public payable {
+        // Only the owner can change the owner
+        // The new owner should pay 0.001 ether
+    }
+
+    function createPost(string memory _title, string memory _content) public payable {}
+
+    function getPosts() public view returns (Post[] memory) {}
+
+    function getPostsByUser(address publisher) public view returns (Post[] memory) {}
+
 ```
-
-You can start editing the page by modifying `src/index.js`. The page auto-updates as you edit the file.
-
-On `src/index.js`, you'll find our `ThirdwebProvider` wrapping your app, this is necessary for our [hooks](https://portal.thirdweb.com/react) and
-[UI Components](https://portal.thirdweb.com/ui-components) to work.
-
-### Deploy to IPFS
-
-Deploy a copy of your application to IPFS using the following command:
-
-```bash
-yarn deploy
-```
-
-## Learn More
-
-To learn more about thirdweb, React and CRA, take a look at the following resources:
-
-- [thirdweb React Documentation](https://docs.thirdweb.com/react) - learn about our React SDK.
-- [thirdweb TypeScript Documentation](https://docs.thirdweb.com/react) - learn about our JavaScript/TypeScript SDK.
-- [thirdweb Portal](https://docs.thirdweb.com/react) - check our guides and development resources.
-- [Create React App Documentation](https://facebook.github.io/create-react-app/docs/getting-started) - learn about CRA features.
-- [React documentation](https://reactjs.org/) - learn React.
-
-You can check out [the thirdweb GitHub organization](https://github.com/thirdweb-dev) - your feedback and contributions are welcome!
-
-## Join our Discord!
-
-For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
