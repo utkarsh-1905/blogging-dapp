@@ -24,6 +24,7 @@ contract Blog {
     }
 
     function changeOwner() public payable {
+        require(msg.sender == owner, "Only owner can change owner");
         require(msg.value == changeOwnerPrice, "You must pay the price");
         owner = msg.sender;
     }
@@ -49,11 +50,15 @@ contract Blog {
         return posts;
     }
 
-    function getPostsByUser() public view returns (Post[] memory) {
+    function getPostsByUser(address publisher)
+        public
+        view
+        returns (Post[] memory)
+    {
         Post[] memory userPosts = new Post[](posts.length);
         uint256 counter = 0;
         for (uint256 i = 0; i < posts.length; i++) {
-            if (posts[i].blogOwner == msg.sender) {
+            if (posts[i].blogOwner == publisher) {
                 userPosts[counter] = posts[i];
                 counter++;
             }

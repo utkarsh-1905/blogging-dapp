@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Box, Container, Button } from "@mui/material";
+import { AppBar, Box, Button } from "@mui/material";
 import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
 import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 import { useNavigate, Link } from "react-router-dom";
@@ -9,16 +9,18 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <Box>
-      <AppBar position="static" sx={{}}>
-        <Container
-          maxWidth="xl"
+    <Box sx={{ width: "100%" }}>
+      <AppBar position="static" fullWidth>
+        <Box
           sx={{
             backgroundColor: "#0f1318",
             flexDirection: "row",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            width: "100%",
+            pl: 15,
+            pr: 15,
           }}
         >
           <Link to="/">
@@ -37,10 +39,6 @@ const Navbar = () => {
             {address && (
               <Box sx={{ marginRight: 4 }}>
                 <Button
-                  // colorMode="dark"
-                  // accentColor="#9045fe"
-                  // contractAddress="0x5FbDB2315678afecb367f032d93F642f64180aa3"
-                  // contractAbi={Blog["abi"]}
                   sx={{
                     backgroundColor: "black",
                     color: "#fff",
@@ -82,7 +80,7 @@ const Navbar = () => {
               <ConnectWallet colorMode="dark" accentColor="#9045fe" />
             )}
           </Box>
-        </Container>
+        </Box>
       </AppBar>
     </Box>
   );

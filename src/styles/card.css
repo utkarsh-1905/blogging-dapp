@@ -11,6 +11,7 @@
   max-height: 20vh;
   border-width: 2px;
   border-style: none;
+  margin-right: 2rem;
 }
 
 .card:hover {

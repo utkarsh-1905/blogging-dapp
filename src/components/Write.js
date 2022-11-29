@@ -7,7 +7,6 @@ const Write = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [open, setOpen] = useState(false);
-
   return (
     <Box>
       <Container sx={{ mt: 5, display: "flex", flexDirection: "column" }}>
@@ -70,8 +69,8 @@ const Write = () => {
               colorMode="dark"
               action={async (contract) => {
                 await contract.call("createPost", title, content, {
-                  gasLimit: 1000000,
                   value: 1000000000000,
+                  gasLimit: 10000000,
                 });
               }}
               onSuccess={() => {
